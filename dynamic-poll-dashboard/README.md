@@ -1,16 +1,84 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Dynamic Poll Dashboard
 
-Currently, two official plugins are available:
+Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+The Dynamic Poll Dashboard is a React application that demonstrates how to integrate a non-React JavaScript library (Chart.js) with React using the useEffect hook. Users can vote for their favorite JavaScript framework, and the chart updates in real time as the vote counts change.
 
-## React Compiler
+Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* React state management with useState
+* Integration of Chart.js with React
+* Real-time chart updates
+* useRef for canvas and chart instance references
+* useEffect lifecycle management
+* Cleanup using destroy() to prevent memory leaks and rendering conflicts
 
-## Expanding the ESLint configuration
+Technologies Used
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* React
+* Vite
+* JavaScript
+* Chart.js
+
+Installation
+
+1. Clone the repository:
+
+git clone <repository-url>
+
+2. Navigate to the project folder:
+
+cd dynamic-poll-dashboard
+
+3. Install dependencies:
+
+npm install
+
+4. Install Chart.js:
+
+npm install chart.js
+
+5. Start the development server:
+
+npm run dev
+
+How It Works
+
+* React stores vote counts in state.
+* Users vote by clicking one of the framework buttons.
+* The useEffect hook detects state changes.
+* Chart.js updates the existing chart using the new vote data.
+* The cleanup function destroys the chart instance when needed to prevent memory leaks.
+
+Test Cases
+
+Normal Cases
+
+1. Click React once.
+    * Expected Result: React vote count becomes 1.
+2. Click Vue three times.
+    * Expected Result: Vue vote count becomes 3.
+3. Click Angular five times.
+    * Expected Result: Angular vote count becomes 5.
+
+Edge Cases
+
+1. No votes cast.
+    * Expected Result: All vote counts remain 0.
+2. Cast more than 20 votes for one framework.
+    * Expected Result: Chart scales correctly without errors.
+3. Rapidly click multiple buttons.
+    * Expected Result: Chart updates correctly and application remains stable.
+
+Learning Outcomes
+
+This project demonstrates:
+
+* React state management
+* React hooks (useState, useEffect, useRef)
+* Integration of third-party JavaScript libraries
+* Imperative updates with Chart.js
+* Proper cleanup of external resources
+
